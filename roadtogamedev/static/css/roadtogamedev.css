@@ -1,0 +1,82 @@
+/*
+Colors:
+darker rgba(34,40,49,1);
+gray rgba(79,138,139,1);
+clear rgba(238,238,238,1);
+yellow rgba(251,212,109,1);
+*/
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: rgba(238,238,238,1);
+    background-color: rgba(34,40,49,1);
+}
+
+.container {
+    border-left: 1px solid rgba(79,138,139,1) !important;
+    height: 100%;
+    min-height: 100vh;
+}
+
+h1 {
+    color: rgba(251,212,109,1);
+}
+
+h1 > small {
+    color: rgba(79,138,139,1);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Slab', serif;
+}
+
+a.site-title {
+    font-size: 64px;
+    font-family: 'Roboto Slab', serif;
+    color: rgba(251,212,109,1);
+}
+
+div.box {
+    color: rgba(251,212,109,1);
+    border: 3px solid rgba(79,138,139,1) !important;
+}
+
+@media (min-width: 768px) {
+    .box-item:nth-child(2n+1) {
+        border-right: 3px solid rgb(79, 138, 139);
+    }
+
+    section:not(.block-stats) > div.box {
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 767px) {
+    section > div.box {
+        width: 100%;
+    }
+}
+
+div.simple-box {
+    border: 3px solid rgba(79,138,139,1) !important;
+}
+
+nav {
+    background-color: rgba(251,212,109,1);
+}
+
+a.nav-link {
+    color: rgba(34,40,49,1);
+}
+
+hr {
+    border-top: 3px solid rgb(79, 138, 139);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+code {
+    color: rgba(79,138,139,1) !important;
+}

@@ -1,0 +1,8 @@
+{% load wagtailcore_tags i18n %}
+<div class="box px-3 py-2 my-2 ml-3 float-right">
+    <h4>{% translate "Favorite gameplay mechanics" %}</h4>
+
+    {% for mechanic in value %}
+        {{ mechanic|richtext }}
+    {% endfor %}
+</div>

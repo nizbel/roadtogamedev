@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags i18n %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+    <div class="simple-box px-3 py-2 my-2 mr-3 float-left">
+        <h4>{% translate "Contact" %}</h4>
+        <p>
+            Twitter: <a href="https://twitter.com/gui_niz">@gui_niz</a>
+        </p>
+    </div>
+    {{ page.body|richtext }}
+{% endblock %}

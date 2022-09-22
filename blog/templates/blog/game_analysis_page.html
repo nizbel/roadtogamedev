@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags i18n %}
+
+{% block body_class %}template-blogpage{% endblock %}
+
+{% block content %}
+    <article>
+        <div class="row my-3">
+            <div class="col-12">
+                <div class="simple-box p-2 text-center" style="color: red">
+                    <h3><b>{% translate "Spoiler alert" %} {{ current_page.language.name_local }}</b></h3>
+                    <h4>{% translate "Game analyses may contain spoilers, proceed at your own risk!" %}</h4>
+                </div>
+            </div>
+        </div>
+
+        <h1>{{ page.title }} <small>({{ page.release_year }})</small></h1>
+
+        <h5>{{ page.platform }}</h5>
+
+        <p class="meta">{{ page.date }}</p>
+
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                {% for block in page.body %}
+                    {% if block.block_type == 'heading' %}
+                        <h1>{{ block.value }}</h1>
+                    {% elif block.block_type == 'paragraph' %}
+                        {% include_block block %}
+                    {% else %}
+                        <section class="block-{{ block.block_type }}">
+                            {% include_block block %}
+                        </section>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <div id="disqus_thread"></div>
+
+    <h5><a href="{{ page.get_parent.url }}">{% translate "Return to index" %}</a></h5>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+var disqus_config = function () {
+this.page.url = 'https://roadtogame.dev{{ page.url }}';
+this.page.identifier = '{{ page.url }}';
+{% if page.language.code == 'pt-BR' %}
+this.language = 'pt_BR';
+{% else %}
+this.language = '{{ page.language.code }}';
+{% endif %}
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://road-to-game-dev.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% endblock %}

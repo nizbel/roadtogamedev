@@ -1,0 +1,22 @@
+{% load wagtailcore_tags i18n %}
+<div class="box px-3 py-2 my-2 col-12">
+    <h4 class="text-center">{% translate "Stats" %}</h4>
+
+    <div class="row">
+        <div class="col-12 col-md-6 box-item">
+            <p><b>{{ page.hours_sunk }}</b> {% translate "Hours in" %}</p>
+        </div>
+        <div class="col-12 col-md-6 box-item">
+            {% if page.music_highlights_count == 1 %}
+            <p><b>{{ page.music_highlights_count }}</b> {% translate "Outstanding song" %}</p>
+            {% else %}
+            <p><b>{{ page.music_highlights_count }}</b> {% translate "Outstanding songs" %}</p>
+            {% endif %}
+        </div>
+        {% for stat in value %}
+            <div class="col-12 col-md-6 box-item">
+            {{ stat.description|richtext }}
+            </div>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags i18n %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+    {{ page.body|richtext }}
+
+    <h2>{% translate "Recent posts" %}</h2>
+    <div class="row">
+        {% for post in blogpages %}
+            <div class="col-md-4">
+                <div class="simple-box p-2">
+                    {% if post.page_type == "GameAnalysisPage" %}
+                    <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+                    <span><strong>{{ post.specific.date }} - {% trans "Game analysis" %}</strong></span>
+
+                    {% elif post.page_type == "DevJournalPage" %}
+                    <h2><a href="{% pageurl post %}">#{{ post.specific.entry_index }} - {{ post.title }}</a></h2>
+                    <span><strong>{{ post.specific.date }} - {% trans "Dev Journal" %}</strong></span>
+
+                    {% else %}
+                    <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+                    <span><strong>{{ post.specific.date }} - {% translate post.page_type %}</strong></span>
+                    {% endif %}
+
+                    <span>{{ post.specific.first_paragraph|truncatewords_html:25 }}</span>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

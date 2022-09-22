@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-25 19:45-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: blog/models.py:78
+msgid "Random"
+msgstr "Aleatório"
+
+#: blog/templates/blocks/gameplay_mechanics.html:3
+msgid "Favorite gameplay mechanics"
+msgstr "Mecânicas de jogo favoritas"
+
+#: blog/templates/blocks/learnings.html:3
+msgid "What I learnt from it"
+msgstr "O que aprendi"
+
+#: blog/templates/blocks/memorable_moments.html:3
+msgid "Memorable moments"
+msgstr "Momentos memoráveis"
+
+#: blog/templates/blocks/music_highlights.html:3
+msgid "Songs that stuck with me"
+msgstr "Músicas que me marcaram"
+
+#: blog/templates/blocks/stats.html:3
+msgid "Stats"
+msgstr "Estatísticas"
+
+#: blog/templates/blocks/stats.html:7
+msgid "Hours in"
+msgstr "Horas no jogo"
+
+#: blog/templates/blocks/stats.html:11
+msgid "Outstanding song"
+msgstr "Música memorável"
+
+#: blog/templates/blocks/stats.html:13
+msgid "Outstanding songs"
+msgstr "Músicas memoráveis"
+
+#: blog/templates/blog/blog_index_page.html:16
+#: home/templates/home/home_page.html:17
+msgid "Game analysis"
+msgstr "Análise de jogo"
+
+#: blog/templates/blog/blog_index_page.html:20
+#: home/templates/home/home_page.html:21
+msgid "Dev Journal"
+msgstr "<i>Dev Journal</i>"
+
+#: blog/templates/blog/common_page.html:29
+#: blog/templates/blog/dev_journal_page.html:33
+#: blog/templates/blog/game_analysis_page.html:46
+msgid "Return to index"
+msgstr "Retornar ao índice"
+
+#: blog/templates/blog/game_analysis_page.html:12
+msgid "Spoiler alert"
+msgstr "Alerta de <i>spoiler</i>"
+
+#: blog/templates/blog/game_analysis_page.html:13
+msgid "Game analyses may contain spoilers, proceed at your own risk!"
+msgstr ""
+"Análises de jogos podem conter <i>spoilers</i>, continue por sua conta e "
+"risco!"
+
+#: home/templates/home/about_me_page.html:9
+msgid "Contact"
+msgstr "Contato"
+
+#: home/templates/home/home_page.html:10
+msgid "Recent posts"
+msgstr "Posts recentes"
+
+#: roadtogamedev/settings/base.py:144
+msgid "English"
+msgstr "Inglês"
+
+#: roadtogamedev/settings/base.py:145
+msgid "Portuguese"
+msgstr "Português"
+
+#: roadtogamedev/templates/base.html:79
+msgid "Languages"
+msgstr "Idiomas"
+
+#~ msgid "About me"
+#~ msgstr "Sobre mim"
