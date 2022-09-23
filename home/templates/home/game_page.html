@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags i18n %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+    <article>
+        <h1>{{ page.title }}</h1>
+        <div class="row">
+            {% for game in games %}
+                <div class="col-12 col-md-3">
+                    <a href="{% pageurl game %}">
+                        <div class="simple-box col-12">
+                            img
+                        </div>
+                    </a>
+                    <a href="{% pageurl game %}"><h4>{{ game.title }}</h4></a>
+                    <p class="meta">{{ game.specific.development_period }}</p>
+                    {{ game.specific.short_description|richtext }}
+                </div>
+            {% endfor %}
+        </div>
+    </article>
+{% endblock %}

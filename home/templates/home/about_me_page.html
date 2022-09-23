@@ -5,11 +5,32 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-    <div class="simple-box px-3 py-2 my-2 mr-3 float-left">
-        <h4>{% translate "Contact" %}</h4>
-        <p>
-            Twitter: <a href="https://twitter.com/gui_niz">@gui_niz</a>
-        </p>
-    </div>
+    <h1>{{ page.title }}</h1>
     {{ page.body|richtext }}
+<!--    <div class="simple-box px-3 py-2 my-2 mr-3 float-left">-->
+    <div class="box px-3 py-2 my-2 col-12">
+        <h4 class="text-center">{% translate "Contact" %}</h4>
+        <div class="row pt-3">
+            <div class="col-4 col-md-3">
+                <h5>
+                    <i class="bi bi-github"></i> <a href="https://github.com/nizbel">nizbel</a>
+                </h5>
+            </div>
+            <div class="col-4 col-md-3">
+                <h5>
+                    <i class="bi bi-linkedin"></i> <a href="https://www.linkedin.com/in/guilherme-henrique-gimenes-de-deus-971834161/">LinkedIn</a>
+                </h5>
+            </div>
+            <div class="col-4 col-md-3">
+                <h5>
+                    <i class="bi bi-envelope"></i> <a href="mailto:kingbowserii@gmail.com">Email</a>
+                </h5>
+            </div>
+            <div class="col-4 col-md-3">
+                <h5>
+                    <i class="bi bi-twitter"></i> <a href="https://twitter.com/gui_niz">@gui_niz</a>
+                </h5>
+            </div>
+        </div>
+    </div>
 {% endblock %}
