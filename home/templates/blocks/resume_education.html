@@ -1,0 +1,8 @@
+{% load wagtailcore_tags i18n %}
+
+{% for education in value %}
+    <div class="col-12 pt-2">
+        <h5>{{ education.institution }} <small>({{ education.period }})</small></h5>
+        <p><b>{{ education.degree }}</b></p>
+    </div>
+{% endfor %}

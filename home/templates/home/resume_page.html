@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags i18n %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+    <article>
+        <h1>{{ page.title }}</h1>
+        <a href="{{ page.pdf_file.url }}"><p><b>{% translate "PDF Version" %}</b></p></a>
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <h3>Skills</h3>
+            </div>
+            {% for block in page.skills %}
+                {% include_block block %}
+            {% endfor %}
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <h3>Experience</h3>
+            </div>
+            {% for block in page.experience %}
+                {% include_block block %}
+            {% endfor %}
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <h3>Education</h3>
+            </div>
+            {% for block in page.education %}
+                {% include_block block %}
+            {% endfor %}
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <h3>Side Projects</h3>
+            </div>
+            {% for block in page.side_projects %}
+                {% include_block block %}
+            {% endfor %}
+        </div>
+    </article>
+{% endblock %}

@@ -57,6 +57,11 @@ div.box {
     }
 }
 
+.simple-box {
+    border: 3px solid rgba(79,138,139,1) !important;
+}
+
+
 div.simple-box {
     border: 3px solid rgba(79,138,139,1) !important;
 }
@@ -69,6 +74,10 @@ a.nav-link {
     color: rgba(34,40,49,1);
 }
 
+a.active {
+    font-weight: 600;
+}
+
 hr {
     border-top: 3px solid rgb(79, 138, 139);
 }
@@ -79,4 +88,9 @@ hr {
 
 code {
     color: rgba(79,138,139,1) !important;
+}
+
+.badge-pill.yellow {
+    background-color: rgba(251,212,109,1);
+    color: rgba(34,40,49,1);
 }

@@ -1,24 +1,66 @@
 {% extends "base.html" %}
 
 {% load wagtailcore_tags i18n %}
+{% load wagtailimages_tags %}
+{% load wagtailembeds_tags %}
 
-{% block body_class %}template-homepage{% endblock %}
+{% block body_class %}template-blogpage{% endblock %}
 
 {% block content %}
     <article>
-        <h1>{{ page.title }}</h1>
-        <div class="row">
-            {% for game in games %}
-                <div class="col-12 col-md-3">
-                    <a href="{% pageurl game %}">
-                        <div class="simple-box col-12">
-                            img
-                        </div>
-                    </a>
-                    <a href="{% pageurl game %}"><h4>{{ game.title }}</h4></a>
-                    <p class="meta">{{ game.specific.development_period }}</p>
-                    {{ game.specific.short_description|richtext }}
+        <h1>{{ page.title }} <small>({{ page.development_period }})</small></h1>
+        {% for tag in page.tags.all %}
+            <span class="badge badge-pill yellow">{{ tag }}</span>
+        {% endfor %}
+
+        <div class="row pt-3">
+            <div class="col-md-12">
+                <b>{{ page.short_description|richtext }}</b>
+
+                {% if page.itch_url %}
+                    <a href="{{ page.itch_url }}"><p><b>{% translate "Available on itch.io" %}</b></p></a>
+                {% endif %}
+
+                {% if page.youtube_url %}
+                <div class="text-center pb-3">
+                    <iframe class="simple-box" width="560" height="315" src="{{ page.youtube_url }}" title="YouTube video player"
+                            frameborder="3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                 </div>
+                {% endif %}
+
+                {% for block in page.body %}
+                    {% include_block block %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>Images</h2>
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-3 pt-3">
+                {% image page.main_image original as original %}
+                {% image page.main_image max-250x250 as main_image %}
+                <div class="simple-box col-12 px-0">
+                    <a href="{{ original.url }}" target="_blank">
+                        <img src="{{ main_image.url }}" width="{{ main_image.width }}"
+                            height="{{ main_image.height }}" alt="{{ main_image.alt }}" />
+                    </a>
+                </div>
+            </div>
+
+            {% for game_image in page.images %}
+            <div class="col-12 col-sm-6 col-md-3 pt-3">
+                {% image game_image.value original as original %}
+                {% image game_image.value max-250x250 as main_image %}
+                <div class="simple-box col-12 px-0">
+                    <a href="{{ original.url }}" target="_blank">
+                        <img src="{{ main_image.url }}" width="{{ main_image.width }}"
+                            height="{{ main_image.height }}" alt="{{ main_image.alt }}" />
+                    </a>
+                </div>
+            </div>
             {% endfor %}
         </div>
     </article>

@@ -77,6 +77,7 @@ class Category(models.Model):
         # pgettext('forecast type', 'Random')
         _("Random")
 
+
 class CommonPage(TranslatablePage):
     date = models.DateField("Post date")
     category = models.ForeignKey("Category", on_delete=models.PROTECT)
@@ -147,7 +148,7 @@ class GameAnalysisPage(TranslatablePage):
             ('url', blocks.URLBlock(required=False)),
         ]), template="blocks/music_highlights.html")),
         ('gameplay_mechanics', blocks.ListBlock(blocks.RichTextBlock(),
-                                                template="blocks/gameplay_mechanics.html", icon='cogs')),
+                                                template="blocks/resume_skills.html", icon='cogs')),
         ('learnings', blocks.ListBlock(blocks.RichTextBlock(),
                                        template="blocks/learnings.html", icon='tick')),
         ('memorable_moments', blocks.ListBlock(blocks.RichTextBlock(),

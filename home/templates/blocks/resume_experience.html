@@ -1,0 +1,13 @@
+{% load wagtailcore_tags i18n %}
+
+{% for experience in value %}
+    <div class="col-12 pt-2">
+        <h5>{{ experience.title_company }} <small>({{ experience.job_title }})</small> <small class="float-right">{{ experience.period }}</small></h5>
+
+        <ul>
+        {% for attribution in experience.attributions %}
+            <li>{{ attribution }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endfor %}

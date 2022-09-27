@@ -1,0 +1,12 @@
+{% load wagtailcore_tags i18n %}
+
+{% for skill_group in value %}
+    <div class="col-12 col-md-4">
+        <h5>{{ skill_group.group_description }}</h5>
+        <ul>
+        {% for skill in skill_group.skills %}
+            <li>{{ skill }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endfor %}

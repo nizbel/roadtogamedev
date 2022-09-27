@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-25 19:45-0300\n"
+"POT-Creation-Date: 2022-09-27 17:05-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,13 +79,21 @@ msgstr ""
 "Análises de jogos podem conter <i>spoilers</i>, continue por sua conta e "
 "risco!"
 
-#: home/templates/home/about_me_page.html:9
+#: home/templates/home/about_me_page.html:12
 msgid "Contact"
 msgstr "Contato"
+
+#: home/templates/home/game_page.html:21
+msgid "Available on itch.io"
+msgstr "Disponível na itch.io"
 
 #: home/templates/home/home_page.html:10
 msgid "Recent posts"
 msgstr "Posts recentes"
+
+#: home/templates/home/resume_page.html:10
+msgid "PDF Version"
+msgstr "Versão em PDF"
 
 #: roadtogamedev/settings/base.py:144
 msgid "English"
@@ -95,9 +103,14 @@ msgstr "Inglês"
 msgid "Portuguese"
 msgstr "Português"
 
-#: roadtogamedev/templates/base.html:79
+#: roadtogamedev/templates/base.html:75
+msgid "About me"
+msgstr "Sobre mim"
+
+#: roadtogamedev/templates/base.html:93
+msgid "Resume"
+msgstr "Currículo"
+
+#: roadtogamedev/templates/base.html:98
 msgid "Languages"
 msgstr "Idiomas"
-
-#~ msgid "About me"
-#~ msgstr "Sobre mim"
