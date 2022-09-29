@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-29 11:13-0300\n"
+"POT-Creation-Date: 2022-09-29 13:01-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -123,12 +123,6 @@ msgstr "Português"
 msgid "About me"
 msgstr "Sobre mim"
 
-#: roadtogamedev/templates/base.html:81
-#, fuzzy
-#| msgid "Dev Journal"
-msgid "Journal"
-msgstr "<i>Dev Journal</i>"
-
 #: roadtogamedev/templates/base.html:93
 msgid "Resume"
 msgstr "Currículo"
@@ -136,3 +130,8 @@ msgstr "Currículo"
 #: roadtogamedev/templates/base.html:98
 msgid "Languages"
 msgstr "Idiomas"
+
+#, fuzzy
+#~| msgid "Dev Journal"
+#~ msgid "Journal"
+#~ msgstr "<i>Dev Journal</i>"

@@ -11,18 +11,18 @@
         <div class="row">
             {% for game in games %}
                 <div class="col-12 col-sm-6 col-md-4">
-                    {% image game.specific.main_image fill-500x350 as main_image %}
+                    {% image game.main_image fill-500x350 as main_image %}
                     <a href="{% pageurl game %}">
                         <img class="col-12 px-0 simple-box" src="{{ main_image.url }}"
                              alt="{{ main_image.alt }}" />
                     </a>
                     <a href="{% pageurl game %}"><h3>{{ game.title }}</h3></a>
-                    <h5>{{ game.specific.development_period }}</h5>
-                    {% for tag in game.specific.tags.all %}
+                    <h5>{{ game.dev_period }}</h5>
+                    {% for tag in game.tags.all %}
                         <span class="badge badge-pill yellow">{{ tag }}</span>
                     {% endfor %}
                     <div class="pt-2">
-                        {{ game.specific.short_description|richtext }}
+                        {{ game.short_description|richtext }}
                     </div>
                 </div>
             {% endfor %}

@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import When, Case, Value, BooleanField
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from modelcluster.fields import ParentalKey
 from taggit.models import TaggedItemBase
@@ -57,8 +58,11 @@ class PortfolioPage(TranslatablePage):
     def get_context(self, request):
         # Update context to include games
         context = super().get_context(request)
-        # TODO Set an attribute for ordering
-        games = self.get_children().live()[::-1]
+
+        games = GamePage.objects.child_of(self).live()\
+            .annotate(unfinished=Case(When(dev_end_year=0, then=Value(True)), default=Value(False),
+                                      output_field=BooleanField())) \
+            .order_by('-unfinished', '-dev_end_year', '-dev_end_month')
 
         context['games'] = games
         return context
@@ -66,7 +70,12 @@ class PortfolioPage(TranslatablePage):
 
 class GamePage(TranslatablePage):
     short_description = RichTextField()
-    development_period = models.CharField('Development Period', max_length=30)
+    # Development period attributes
+    dev_start_month = models.SmallIntegerField('Development Start Month')
+    dev_start_year = models.SmallIntegerField('Development Start Year')
+    dev_end_month = models.SmallIntegerField('Development End Month', default=0)
+    dev_end_year = models.SmallIntegerField('Development End Year', default=0)
+
     tags = ClusterTaggableManager(through=Technology, blank=True)
     main_image = models.ForeignKey(
         'wagtailimages.Image',
@@ -91,7 +100,10 @@ class GamePage(TranslatablePage):
     ])
 
     content_panels = Page.content_panels + [
-        FieldPanel('development_period'),
+        FieldPanel('dev_start_month'),
+        FieldPanel('dev_start_year'),
+        FieldPanel('dev_end_month'),
+        FieldPanel('dev_end_year'),
         FieldPanel('tags'),
         FieldPanel('short_description'),
         FieldPanel('main_image'),
@@ -103,6 +115,26 @@ class GamePage(TranslatablePage):
 
     parent_page_types = ['home.PortfolioPage']
     subpage_types = []
+
+    def dev_start(self):
+        if self.dev_start_month > 0:
+            return f'{str(self.dev_start_month).zfill(2)}/{self.dev_start_year}'
+        return self.dev_start_year
+
+    def dev_end(self):
+        if self.dev_end_year == 0:
+            return 'Present'
+        if self.dev_end_month > 0:
+            return f'{str(self.dev_end_month).zfill(2)}/{self.dev_end_year}'
+        return self.dev_end_year
+
+    def dev_period(self):
+        start = self.dev_start()
+        end = self.dev_end()
+
+        if start == end:
+            return start
+        return f'{start} - {end}'
 
 
 class ResumePage(TranslatablePage):
