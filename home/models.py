@@ -57,7 +57,8 @@ class PortfolioPage(TranslatablePage):
     def get_context(self, request):
         # Update context to include games
         context = super().get_context(request)
-        games = self.get_children().live()
+        # TODO Set an attribute for ordering
+        games = self.get_children().live()[::-1]
 
         context['games'] = games
         return context
