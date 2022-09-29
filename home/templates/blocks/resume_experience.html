@@ -6,7 +6,7 @@
 
         <ul>
         {% for attribution in experience.attributions %}
-            <li>{{ attribution }}</li>
+            <li>{{ attribution|striptags }}</li>
         {% endfor %}
         </ul>
     </div>
