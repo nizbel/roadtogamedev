@@ -10,7 +10,7 @@
         <a href="{{ page.pdf_file.url }}"><p><b>{% translate "PDF Version" %}</b></p></a>
         <div class="row">
             <div class="col-12 col-md-12">
-                <h3>Skills</h3>
+                <h3>{% translate "Skills" %}</h3>
             </div>
             {% for block in page.skills %}
                 {% include_block block %}
@@ -21,7 +21,7 @@
 
         <div class="row">
             <div class="col-12 col-md-12">
-                <h3>Experience</h3>
+                <h3>{% translate "Experience" %}</h3>
             </div>
             {% for block in page.experience %}
                 {% include_block block %}
@@ -32,7 +32,7 @@
 
         <div class="row">
             <div class="col-12 col-md-12">
-                <h3>Education</h3>
+                <h3>{% translate "Education" %}</h3>
             </div>
             {% for block in page.education %}
                 {% include_block block %}
@@ -43,7 +43,7 @@
 
         <div class="row">
             <div class="col-12 col-md-12">
-                <h3>Side Projects</h3>
+                <h3>{% translate "Side Projects" %}</h3>
             </div>
             {% for block in page.side_projects %}
                 {% include_block block %}
