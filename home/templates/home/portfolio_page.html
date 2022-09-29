@@ -11,10 +11,10 @@
         <div class="row">
             {% for game in games %}
                 <div class="col-12 col-sm-6 col-md-4">
+                    {% image game.specific.main_image fill-500x350-c50 as main_image %}
                     <a href="{% pageurl game %}">
-                        <div class="simple-box col-12 px-0">
-                            {% image game.specific.main_image max-600x600 %}
-                        </div>
+                        <img class="col-12 px-0 simple-box" src="{{ main_image.url }}"
+                             alt="{{ main_image.alt }}" />
                     </a>
                     <a href="{% pageurl game %}"><h3>{{ game.title }}</h3></a>
                     <h5>{{ game.specific.development_period }}</h5>

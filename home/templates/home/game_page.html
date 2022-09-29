@@ -41,11 +41,10 @@
         <div class="row">
             <div class="col-12 col-sm-6 col-md-3 pt-3">
                 {% image page.main_image original as original %}
-                {% image page.main_image max-250x250 as main_image %}
+                {% image page.main_image fill-250x180 as main_image %}
                 <div class="simple-box col-12 px-0">
                     <a href="{{ original.url }}" target="_blank">
-                        <img src="{{ main_image.url }}" width="{{ main_image.width }}"
-                            height="{{ main_image.height }}" alt="{{ main_image.alt }}" />
+                        <img src="{{ main_image.url }}" class="col-12 px-0 simple-box" alt="{{ main_image.alt }}" />
                     </a>
                 </div>
             </div>
@@ -53,11 +52,10 @@
             {% for game_image in page.images %}
             <div class="col-12 col-sm-6 col-md-3 pt-3">
                 {% image game_image.value original as original %}
-                {% image game_image.value max-250x250 as main_image %}
+                {% image game_image.value fill-250x180 as main_image %}
                 <div class="simple-box col-12 px-0">
                     <a href="{{ original.url }}" target="_blank">
-                        <img src="{{ main_image.url }}" width="{{ main_image.width }}"
-                            height="{{ main_image.height }}" alt="{{ main_image.alt }}" />
+                        <img src="{{ main_image.url }}" class="col-12 px-0 simple-box" alt="{{ main_image.alt }}" />
                     </a>
                 </div>
             </div>
