@@ -148,7 +148,7 @@ class GameAnalysisPage(TranslatablePage):
             ('url', blocks.URLBlock(required=False)),
         ]), template="blocks/music_highlights.html")),
         ('gameplay_mechanics', blocks.ListBlock(blocks.RichTextBlock(),
-                                                template="blocks/resume_skills.html", icon='cogs')),
+                                                template="blocks/gameplay_mechanics.html", icon='cogs')),
         ('learnings', blocks.ListBlock(blocks.RichTextBlock(),
                                        template="blocks/learnings.html", icon='tick')),
         ('memorable_moments', blocks.ListBlock(blocks.RichTextBlock(),
